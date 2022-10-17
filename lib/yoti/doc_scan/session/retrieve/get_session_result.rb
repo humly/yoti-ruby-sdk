@@ -29,6 +29,9 @@ module Yoti
           # @return [DateTime]
           attr_reader :biometric_consent_timestamp
 
+          # @return [Hash]
+          attr_reader :identity_profile
+
           #
           # @param [Hash] response
           #
@@ -58,6 +61,8 @@ module Yoti
             @resources = ResourceContainer.new(response['resources']) unless response['resources'].nil?
 
             @biometric_consent_timestamp = DateTime.parse(response['biometric_consent']) unless response['biometric_consent'].nil?
+
+            @identity_profile = response['identity_profile'] unless response['identity_profile'].nil?
           end
 
           #
