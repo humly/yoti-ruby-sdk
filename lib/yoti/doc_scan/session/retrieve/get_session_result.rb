@@ -32,6 +32,9 @@ module Yoti
           # @return [Hash]
           attr_reader :identity_profile
 
+          # @return [Hash]
+          attr_reader :original_response
+
           #
           # @param [Hash] response
           #
@@ -63,6 +66,8 @@ module Yoti
             @biometric_consent_timestamp = DateTime.parse(response['biometric_consent']) unless response['biometric_consent'].nil?
 
             @identity_profile = response['identity_profile'] unless response['identity_profile'].nil?
+
+            @original_response = response
           end
 
           #
